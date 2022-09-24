@@ -12,10 +12,10 @@ window.addEventListener("load", function()
     },
     "theme": "classic",
     "content": {
-      "message": "En poursuivant votre navigation, vous acceptez l'utilisation de cookies par TonGay.com et ses <a href=\"https://policies.google.com/technologies/partner-sites?hl=fr\" target=\"_blank\" rel=\"nofollow\" class=\"cc-link\">partenaires</a>.",
+      "message": "En poursuivant votre navigation, vous acceptez l'utilisation de cookies par TonGay.com et ses <a href=\"https://policies.google.com/technologies/partner-sites?hl=fr\" target=\"_blank\" rel=\"external nofollow noopener\" class=\"cc-link\">partenaires</a>.",
       "dismiss": "OK",
       "link": "En savoir plus",
-      "href": "/cgu.html#cgu8"
+      "href": "/gestion-cookies/"
     }
   })
 {passive: true}});
