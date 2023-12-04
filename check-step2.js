@@ -119,6 +119,22 @@ $(function ()
 					},
 					blank: {}
 				}
+			},
+			cap:
+			{
+				transformer: function($field, validatorName, validator)
+				{
+					var value = $field.val();
+					return value.trim();
+				},
+				validators:
+				{
+					notEmpty:
+					{
+						message: 'Le code de sécurité doit être recopié'
+					},
+					blank: {}
+				}
 			}
 		}
 	})
@@ -149,14 +165,6 @@ $(function ()
 			{
 				// Reload la page pour afficher la prochaine étape du formulaire
 				window.location = '/';
-
-				/*
-				$('.registration-box').fadeToggle(200);
-
-				// Load step 3 form
-				$('.registration-box').load('/ajax/registration/load_form3.html');
-				$('.registration-box').fadeToggle(200);
-				*/
 			}
 		});
 	})
