@@ -56,7 +56,7 @@ $(function ()
 	.on('success.form.fv', function(e)
 	{
 		// Désactive le bouton
-		$('.button-submit').prop('disabled', true);
+		//$('.button-submit').prop('disabled', true);
 
 		// Prevent default form submission
 		e.preventDefault();
@@ -75,12 +75,15 @@ $(function ()
 			dataType: 'json'
 		}).success(function(response)
 		{
-			// If there is error returned from server
-			if(response.result === 'error')
-			{
-				for(var field in response.fields) fv.updateMessage(field, 'blank', response.fields[field]).updateStatus(field, 'INVALID', 'blank');
+			// Si le membre est exilé
+			if(response.result === 'exiled') window.location.href = '/verification-majorite.html';
 
-				if(response.custom_error)
+			// If there is error returned from server
+			else if(response.result === 'error')
+			{
+				for (var field in response.fields) fv.updateMessage(field, 'blank', response.fields[field]).updateStatus(field, 'INVALID', 'blank');
+
+				if (response.custom_error)
 				{
 					$('#form-signin .custom-error').html(response.custom_error);
 					$('#form-signin .custom-error').show();
@@ -89,11 +92,13 @@ $(function ()
 
 			else window.location.href = '/membre/?user=' + response.userId;
 
+			/*
 			setTimeout(function()
 	        {
 				// Réactive le bouton
 				$('.button-submit').prop('disabled', false);
 	        }, 3000);
+	        */
 		});
 	})
 
